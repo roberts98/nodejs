@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 id="new-post">Add new post</h1>
+        <div class="cont">
+            <form action="/post" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="image" class="form-control" placeholder="Image URL">
+                </div>
+                <div class="form-group">
+                    <textarea name="content" class="form-control" rows="7" placeholder="Content"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info">submit</button>
+                </div>
+            </form>    
+        </div>
+   
+    </div>
+
+</div>
+
+
+
+<% include ../partials/footer %>

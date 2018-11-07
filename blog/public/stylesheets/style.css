@@ -1,0 +1,77 @@
+.card {
+    /*margin: 15px auto;*/
+    width: 80%;
+}
+
+.jumbotron {
+    margin-top: 10px;
+}
+
+#new-post {
+    text-align: center;
+    color: #555555;
+}
+
+.btn-info {
+    width: 100%;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+#title {
+    display: inline-block;
+}
+
+.table {
+    text-align: center;
+}
+
+.nav-tabs {
+    margin: 30px auto;
+}
+
+.carousel {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container-fluid {
+    padding: 25px;
+}
+
+#main {
+    margin: 0;
+}
+
+body {
+    background-color: #fbfbfb;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-caption {
+    color: white;
+    background-color: rgba(50, 50, 50, 0.55);
+    bottom: 0;
+}
+
+.card-img-top {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card {
+    margin: 0 auto;
+}
+
+.form-control[readonly] {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.remove-form {
+    display: inline-block;
+}

@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/posts">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/comments">Comments</a>
+        </li>
+    </ul>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">ID</th>
+                <th scope="col">Account created</th>
+                <th scope="col">Delete user</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%let i = 1; user.forEach(function(user) { %>
+                <tr>
+                    <th scope="row"><%= i %></th>
+                    <td><%= user.username %></td>
+                    <td><%= user._id %></td>
+                    <td><%= user.created.getDate() %>/<%= user.created.getMonth() %>/<%= user.created.getFullYear() %></td>
+                    <td>
+                        <form action="/admin/users/<%= user._id %>/remove?_method=DELETE" method="POST">
+                            <button class="btn btn-danger btn-sm">
+                                Remove
+                            </button>
+                    </form>
+                    </td>
+                </tr>
+            <%i++ }); %>
+        </tbody>
+    </table>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/users">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/comments">Comments</a>
+            </li>
+        </ul>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Post Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Posted</th>
+                    <th scope="col">Delete post</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%let i = 1; post.forEach(function(post) { %>
+                    <tr>
+                        <th scope="row"><%= i %></th>
+                        <td><%= post.name %></td>
+                        <td><%= post.author.username %></td>
+                        <td><%= post.created.getDate() %>/<%= post.created.getMonth() %>/<%= post.created.getFullYear() %></td>
+                        <td>
+                            <form action="/admin/posts/<%= post._id %>/remove?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-sm">
+                                    Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <%i++ }); %>
+            </tbody>
+        </table>
+    </div>
+
+<% include ../partials/footer %>

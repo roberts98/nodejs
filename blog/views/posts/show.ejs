@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="jumbotron">
+        <h1 id="title"><%= post.name %></h1>
+        <p> by <%= post.author.username %></p><hr>
+        <p><%- post.content %></p>
+            <% if (currentUser && (post.author.id == currentUser.id || currentUser.isSuperUser === 1)) { %>
+            <a href="/post/<%= post._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+            <form action="/post/<%= post._id %>/?_method=DELETE" method="POST" class="remove-form">
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </form>
+        <% } %>
+        
+        <br><br><hr>
+        <div class="row">
+            <div class="col-lg-8">
+                <% post.comments.forEach(function(comment) { %>
+                    <h4 id="commentAuthor"><strong><%= comment.author.username %></strong></h4>
+                    <p><%= comment.content %></p>
+                    <hr>
+                <% }); %>
+            </div>
+            <div class="col-lg-4">
+                <form action="/post/<%= post._id %>" method="POST">
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Comment</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment[content]"></textarea>
+                        </div>  
+                        <button class="btn btn-primary float-right">Add a new comment</button>
+                    </div>
+                </form>     
+            </div>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>

@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 id="new-post">Edit profile information</h1>
+        <form action="/profile/<%= currentUser.id %>/edit">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" value="<%= currentUser.username %>" readonly>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" value="<%= currentUser.email %>">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="country">Country</label>
+                    <input type="text" class="form-control" id="country" value="<%= currentUser.country %>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="gender">Gender</label>
+                    <select id="gender" class="form-control">
+                        <option selected>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="age">Age</label>
+                    <input type="text" class="form-control" id="age" value="<%= currentUser.age %>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for"aboutMe">About Me</label>
+                <textarea name="content" class="form-control" rows="4"><%= currentUser.about %></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>

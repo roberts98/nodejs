@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/users">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/posts">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Comments</a>
+            </li>
+        </ul>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Delete comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%let i = 1; comment.forEach(function(comment) { %>
+                    <tr>
+                        <th scope="row"><%= i %></th>
+                        <td><%= comment.content.substring(0,50) %></td>
+                        <td><%= comment.author.username %></td>
+                        <td><%= comment.created.getDate() %>/<%= comment.created.getMonth() %>/<%= comment.created.getFullYear() %></td>
+                        <td>
+                            <form action="/admin/comments/<%= comment._id %>/remove?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-sm">
+                                    Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <%i++ }); %>
+            </tbody>
+        </table>
+    </div>
+
+<% include ../partials/footer %>
